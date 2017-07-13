@@ -7,14 +7,26 @@
   <body>
     <h1>Welcome to express.js</h1>
 
-    <form class="" action="/" method="post">
-      <input type="text" name="first_name" value="">
-      <input type="text" name="last_name" value="">
+    <form class="" action="/signup" method="post">
+      <ul>
+        {{#errors}}
+          <li>{{param}}: {{msg}}</li>
+        {{/errors}}
+      </ul>
+
+      <input type="text" name="first_name" value="{{first_name}}">
+      <input type="text" name="last_name" value="{{last_name}}">
       <input type="submit" name="" value="Send!">
     </form>
 
-    <h2>Data:</h2>
-    {{first_name}}
+    {{#first_name}}
+      <h2>Data:</h2>
+      {{first_name}}
+    {{/first_name}}
+
+    {{^first_name}}
+      <h2>No First Name</h2>
+    {{/first_name}}
 
   </body>
 </html>
